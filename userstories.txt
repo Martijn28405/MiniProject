@@ -1,8 +1,51 @@
-User stories:
+User stories: 
+ 
+1. As player I want to be able to move to different locations to obtain and complete quests to win the game. 
 
-1. As player I want to be able to move to different locations to obtain and complete quests to win the game.
-2. As player I want to be able fight monsters to obtain both new items and gold from winning. 
-3. As player i want an inventory to be able to collect items to be able to fight monsters and progress the story.
-4.  As player I want some of the items to be able to recover health to be able to continue exploring. 
-5. As player I want to be able to find and equip weapons to slay the monsters and continue the story more easily. 
-6. As the player I want to be able to quit the game when I no longer want to play.
+2. As player I want to be able fight monsters to obtain both new items from winning.  
+
+3. As player i want an inventory to be able to collect items to be able to fight monsters and progress the story. 
+
+4.  As player I want some of the items to be able to recover health to be able to continue exploring.  
+
+5. As player I want to be able to find and equip weapons to slay the monsters and continue the story more easily.  
+
+6. As the player I want to be able to quit the game when I no longer want to play. 
+
+ 
+
+Prioriteiten: 
+
+Classes die aan world.cs aansluiten. 
+
+1.1 Locations (Martijn & Gavin) 
+- The player can move to different locations 
+- The player can see to which locations they can move 
+- Locations have descriptions 
+ 
+
+1.2 Quests (Jullian) 
+- The player can obtain and complete quests. 
+- The player can win the game by completing certain quests. 
+- When completing a quest, the player can obtain item. 
+ 
+
+1.3 Items (Luca) 
+- The player can recover health 
+- The player has an inventory to hold items 
+- The items obtained from winning a fight are random 
+ 
+
+1.4 Weapons  
+ 
+
+1.5 Monsters (Jordina) 
+- The player can fight monsters 
+- When winning a fight, the player can obtain items 
+- When attacking, the player and monsters do a variable amount of damage 
+
+Voordat we aan de andere punten kunnen beginnen moeten we een wereld hebben waarin we kunnen rondbewegen (Locations Class). 
+
+1.5 Player 
+- The player can quit the game 
+- The player can equip weapons 
