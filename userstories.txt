@@ -1,0 +1,8 @@
+User stories:
+
+1. As player I want to be able to move to different locations to obtain and complete quests to win the game.
+2. As player I want to be able fight monsters to obtain both new items and gold from winning. 
+3. As player i want an inventory to be able to collect items to be able to fight monsters and progress the story.
+4.  As player I want some of the items to be able to recover health to be able to continue exploring. 
+5. As player I want to be able to find and equip weapons to slay the monsters and continue the story more easily. 
+6. As the player I want to be able to quit the game when I no longer want to play.
