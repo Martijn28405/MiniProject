@@ -10,4 +10,9 @@ public class CountedItemList
         
 
     }
+
+    public void AddItem(Item item)
+    {
+        item = Item(World.ITEM_ID_RAT_TAIL);
+    }
 }

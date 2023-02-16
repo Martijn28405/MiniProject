@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public class Player
 {
-    public string Name { get; set; }
+    public string Name;
     public int CurrentHitPoints { get; set; }
     public int MaximumHitPoints { get; set; }
     public int Gold { get; set; }

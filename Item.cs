@@ -4,7 +4,7 @@ public class Item
     public string Name;
     public string NamePlural;
 
-    public Monster(int id, string name, string namePlural)
+    public Item(int id, string name, string namePlural)
     {
         this.ID = id;
         this.Name = name;
