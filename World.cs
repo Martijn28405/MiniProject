@@ -1,3 +1,5 @@
+namespace Mini_Project;
+
 public static class World
 {
     public static readonly List<Item> Items = new List<Item>();

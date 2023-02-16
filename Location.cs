@@ -1,5 +1,4 @@
 ﻿namespace Mini_Project;
-
 public class Location
 {
     public int ID;
@@ -15,12 +14,12 @@ public class Location
 
     public Location(int id, string name,  string description, Item itemRequiredToEnter, Quest questAvailableHere, Monster monsterLivingHere)
     {
-        id = ID;
-        name = Name;
-        description = Description;
-        itemRequiredToEnter = ItemRequiredToEnter;
-        questAvailableHere = QuestAvailableHere;
-        monsterLivingHere = MonsterLivingHere;
+        ID = id;
+        Name = name;
+        Description = description;
+        ItemRequiredToEnter = itemRequiredToEnter;
+        QuestAvailableHere = questAvailableHere;
+        MonsterLivingHere = monsterLivingHere;
         
 
 

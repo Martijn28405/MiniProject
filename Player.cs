@@ -12,27 +12,23 @@ public class Player
     public int Gold { get; set; }
     public int ExperiencePoints { get; set; }
     public int Level { get; set; }
-    public Weapon CurrentWeapon { get; set; }
-    public Location CurrentLocation { get; set; }
-    public QuestLog QuestList { get; set; }
+    public static Weapon CurrentWeapon { get; set; }
+    public static Location CurrentLocation { get; set; }
+    public QuestList QuestLog  { get; set; }
     public CountedItemList Inventory { get; set; }
 
-    public Player(string name, int currentHitPoints, int maximumHitPoints, int gold, int experiencePoints, int level)
+    public Player(string name)
     {
         this.Name = name;
-        this.CurrentHitPoints = currentHitPoints;
-        this.MaximumHitPoints = maximumHitPoints;
-        this.Gold = gold;
-        this.ExperiencePoints = experiencePoints;
-        this.Level = level;
-        // this.QuestList = new QuestLog();
-        // this.Inventory = new Inventory();
+        this.QuestLog = new QuestList();
+        this.Inventory = new CountedItemList();
     }
 
     public void TakeDamage(int damage)
     {
         CurrentHitPoints -= damage;
     }
+    
 
     // public void DealDamage(Monster target)
     // {
