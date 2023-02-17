@@ -1,17 +1,16 @@
-﻿namespace Mini_Project
+﻿namespace MiniProject
 {
-
     public class Monster
     {
         public int ID { get; set; }
-        public string Name;
-        public string NamePlural;
-        public int MaximumDamage;
-        public int RewardExperience;
-        public int RewardGold;
-        public CountedItemList Loot;
-        public int MaximumHitPoints;
-        public int CurrentHitPoints;
+        public string Name { get; set; }
+        public string NamePlural { get; set; }
+        public int MaximumDamage { get; set; }
+        public int RewardExperience { get; set; }
+        public int RewardGold { get; set; }
+        public CountedItemList Loot { get; set; }
+        public int MaximumHitPoints { get; set; }
+        public int CurrentHitPoints { get; set; }
 
         public Monster(int id, string name, string namePlural, int maximumDamage, int rewardExperience, int rewardGold,
             int maximumHitPoints, int currentHitPoints)
@@ -37,4 +36,4 @@
             target.TakeDamage(World.RandomGenerator.Next(0, MaximumDamage));
         }
     }
-}    
+}

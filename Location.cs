@@ -1,31 +1,26 @@
-﻿namespace Mini_Project;
-public class Location
+﻿namespace MiniProject
 {
-    public int ID;
-    public string Name;
-    public string Description;
-    public Item ItemRequiredToEnter;
-    public Quest QuestAvailableHere;
-    public Monster MonsterLivingHere;
-    public Location LocationToNorth;
-    public Location LocationToEast;
-    public Location LocationToSouth;
-    public Location LocationToWest;
-
-    public Location(int id, string name,  string description, Item itemRequiredToEnter, Quest questAvailableHere, Monster monsterLivingHere)
+    public class Location
     {
-        ID = id;
-        Name = name;
-        Description = description;
-        ItemRequiredToEnter = itemRequiredToEnter;
-        QuestAvailableHere = questAvailableHere;
-        MonsterLivingHere = monsterLivingHere;
-        
+        public int ID;
+        public string Name;
+        public string Description;
+        public Item ItemRequiredToEnter;
+        public Quest QuestAvailableHere;
+        public Monster MonsterLivingHere;
+        public Location LocationToNorth;
+        public Location LocationToEast;
+        public Location LocationToSouth;
+        public Location LocationToWest;
 
-
-
-
+        public Location(int id, string name, string description, Item itemRequiredToEnter, Quest questAvailableHere, Monster monsterLivingHere)
+        {
+            ID = id;
+            Name = name;
+            Description = description;
+            ItemRequiredToEnter = itemRequiredToEnter;
+            QuestAvailableHere = questAvailableHere;
+            MonsterLivingHere = monsterLivingHere;
+        }
     }
 }
-
-  

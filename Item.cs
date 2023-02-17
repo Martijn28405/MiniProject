@@ -1,15 +1,16 @@
-public class Item
+namespace MiniProject
 {
-    public int ID;
-    public string Name;
-    public string NamePlural;
-
-    public Item(int id, string name, string namePlural)
+    public class Item
     {
-        this.ID = id;
-        this.Name = name;
-        this.NamePlural = namePlural;
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string NamePlural { get; set; }
 
-
+        public Item(int id, string name, string namePlural)
+        {
+            this.ID = id;
+            this.Name = name;
+            this.NamePlural = namePlural;
+        }
     }
 }

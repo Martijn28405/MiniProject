@@ -1,17 +1,13 @@
-﻿using System.Net.Mail;
-
-namespace Mini_Project;
-
-public class CountedItem
+﻿namespace MiniProject
 {
-    public Item TheItem;
-    public int Quantity;
-
-    public CountedItem(Item theitem, int quantity)
+    public class CountedItem
     {
-        this.TheItem = theitem;
-        this.Quantity = quantity;
+        public Item TheItem { get; set; }
+        public int Quantity { get; set; }
+        public CountedItem(Item theitem, int quantity)
+        {
+            this.TheItem = theitem;
+            this.Quantity = quantity;
+        }
     }
-
-
 }
