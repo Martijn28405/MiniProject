@@ -8,11 +8,8 @@ namespace MiniProject
     public class Story
     {
         public Player player { get; set; }
-        
+
         // stats van de player
-
-
-
         public Story(string playerName)
         {
             player = new Player(playerName)
@@ -25,61 +22,50 @@ namespace MiniProject
         public void Intro()
         {
             Console.WriteLine("The people in your town are being terrorized by giant spiders. You Decide to do what you can to help");
+            var battle = new Battle(player, World.Monsters.First());
+            battle.StartBattle();
         }
 
         public void Menu()
         {
             Console.WriteLine("You are home now");
-            
-        while(true) 
-        {
-            Console.WriteLine("What would you like to do?");
-            Console.WriteLine("1. see game stats");
-            Console.WriteLine("2. Fight");
-            Console.WriteLine("3. Move");
-            Console.WriteLine("4. Quit");
-            string choice = Console.ReadLine();
-            switch (choice)
+
+            while (true)
             {
-                case "1":
-                    Console.WriteLine("");
-                    Console.WriteLine($"Hello {player.Name} these are your stats:");
-                    Console.WriteLine($"Maximum HP: {player.MaximumHitPoints}");
-                    Console.WriteLine($"Current HP: {player.CurrentHitPoints}");                    
-                    Console.WriteLine($"Gold: {player.Gold}");
-                    // Console.WriteLine($"Your Current location: {Map()}");
-                    Console.WriteLine($"Inventory item count: {player.Inventory.TheCountedItemList.Count}");
-                    Console.WriteLine($"Inventory items: [{string.Join("," ,player.Inventory.TheCountedItemList)}]");
-                    foreach (var item in player.Inventory.TheCountedItemList)
-                    {
-                        Console.WriteLine(item);
-                    }
-                    Console.WriteLine();
-                    break;
-                case "2":
-                    Console.WriteLine("Fight test");
-                    Battle battle = new Battle(100,100);
-                    battle.battle();
-                    break;
-                case "3":
-                    Console.WriteLine(Map());
-                    break;
-                case "4":
-                    System.Environment.Exit(1);
-                    break;
-                default:
-                    break;
+                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("1. see game stats");
+                Console.WriteLine("2. Fight");
+                Console.WriteLine("3. Move");
+                Console.WriteLine("4. Quit");
+                string choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "1":
+                        Console.WriteLine("");
+                        Console.WriteLine($"Hello {player.Name} these are your stats:");
+                        Console.WriteLine($"Maximum HP: {player.MaximumHitPoints}");
+                        Console.WriteLine($"Current HP: {player.CurrentHitPoints}");
+                        Console.WriteLine($"Gold: {player.Gold}");
+                        // Console.WriteLine($"Your Current location: {Map()}");
+                        Console.WriteLine($"Inventory item count: {player.Inventory.TheCountedItemList.Count}");
+                        Console.WriteLine($"Inventory items: {player.Inventory}");
+                        Console.WriteLine();
+                        break;
+                    case "2":
+                        Console.WriteLine("Fight test");
+                        // Battle battle = new Battle(100, 100);
+                        // battle.battle();
+                        break;
+                    case "3":
+                        Console.WriteLine(Map());
+                        break;
+                    case "4":
+                        System.Environment.Exit(1);
+                        break;
+                    default:
+                        break;
+                }
             }
-            {
-                
-            }
-        }
-        {
-            
-        }
-        {
-            
-        }
         }
 
         public string Map()
@@ -95,8 +81,8 @@ namespace MiniProject
             string bridge = World.LocationByID(World.LOCATION_ID_BRIDGE).Letter;
             string map = "\n" + String.Format("{0,5}", garden) + "\n" + String.Format("{0,5}", hut) + "\n" + " " + farmfield + farmhouse + town + guard + bridge + spider + "\n" + "    " + home + "\n";
             return $"Current Location: {home} \n Map \n {map}";
-            
+
 
         }
     }
-        }
+}
