@@ -22,8 +22,6 @@ namespace MiniProject
         public void Intro()
         {
             Console.WriteLine("The people in your town are being terrorized by giant spiders. You Decide to do what you can to help");
-            var battle = new Battle(player, World.Monsters.First());
-            battle.StartBattle();
         }
 
         public void Menu()
@@ -53,8 +51,8 @@ namespace MiniProject
                         break;
                     case "2":
                         Console.WriteLine("Fight test");
-                        // Battle battle = new Battle(100, 100);
-                        // battle.battle();
+                        var battle = new Battle(player, World.Monsters.First());
+                        battle.StartBattle();
                         break;
                     case "3":
                         Console.WriteLine(Map());
