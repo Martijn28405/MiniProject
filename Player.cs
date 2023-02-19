@@ -21,22 +21,44 @@ namespace MiniProject
         public Player(string name)
         {
             this.Name = name;
-            this.QuestLog = new QuestList();
-            this.Inventory = new CountedItemList();
-            this.Gold = 0;
-            this.MaximumHitPoints = 10;
             this.CurrentHitPoints = 10;
+            this.MaximumHitPoints = 10;
+            this.Gold = 0;
+            this.ExperiencePoints = 0;
+            this.Level = 0;
+            // this.CurrentWeapon =
+            // this.CurrentLocation = 
+            // this.QuestLog =
+            // this.CountedItemList =
         }
 
         public void TakeDamage(int damage)
         {
+            // When taking damage the player loses HP based on the damage.
             CurrentHitPoints -= damage;
+            Console.WriteLine($"You took {damage} damage, your current HP is {CurrentHitPoints}/{MaximumHitPoints}.");
         }
 
 
-        // public void DealDamage(Monster target)
-        // {
-        //     target.TakeDamage(World.RandomGenerator.Next(CurrentWeapon.MinimumDamage, CurrentWeapon.MaximumDamage));
-        // }
+        public void DealDamage(Monster target)
+        {
+            int DiceRoll = World.RandomGenerator.Next(1, 20);
+            // When the dice rolls 1 the player misses.
+            if (DiceRoll == 1)
+            {
+                Console.WriteLine("You missed!");
+            }
+            // When the dice rolls 20 the player does critical damage (extra damage).
+            else if (DiceRoll == 20)
+            {
+                int criticalHit = World.RandomGenerator.Next(CurrentWeapon.MinimumDamage, CurrentWeapon.MaximumDamage) + 1;
+                target.TakeDamage(criticalHit);
+                Console.WriteLine($"You made a critical hit of {criticalHit} damage!");
+            }
+            // When the dice rolls anything else the player does regular damage between their minimun and maximun damage.
+            int damageAmount = World.RandomGenerator.Next(CurrentWeapon.MinimumDamage, CurrentWeapon.MaximumDamage);
+            target.TakeDamage(damageAmount);
+            Console.WriteLine($"You did {damageAmount} of damage!");
+        }
     }
 }
