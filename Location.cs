@@ -12,8 +12,9 @@
         public Location LocationToEast;
         public Location LocationToSouth;
         public Location LocationToWest;
+        public string Letter;
 
-        public Location(int id, string name, string description, Item itemRequiredToEnter, Quest questAvailableHere, Monster monsterLivingHere)
+        public Location(int id, string name, string description, Item itemRequiredToEnter, Quest questAvailableHere, Monster monsterLivingHere, string letter)
         {
             ID = id;
             Name = name;
@@ -21,6 +22,7 @@
             ItemRequiredToEnter = itemRequiredToEnter;
             QuestAvailableHere = questAvailableHere;
             MonsterLivingHere = monsterLivingHere;
+            Letter = letter;
         }
     }
 }

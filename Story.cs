@@ -58,6 +58,8 @@ namespace MiniProject
                     break;
                 case "2":
                     Console.WriteLine("Fight test");
+                    Battle battle = new Battle(100,100);
+                    battle.battle();
                     break;
                 case "3":
                     Console.WriteLine(Map());

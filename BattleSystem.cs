@@ -1,10 +1,10 @@
 using System;
 
-namespace Mini_Project
+namespace MiniProject
 {
     class ExecuteBattle
     {
-        static void Main(string[] args)
+        static void main(string[] args)
         {
             Battle battle = new Battle(100, 100);
             battle.battle();

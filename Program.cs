@@ -8,7 +8,7 @@
             string name = Console.ReadLine();
             Story story = new Story(name);
             story.Intro();
-
+            story.Menu();
         }
     }
 }
