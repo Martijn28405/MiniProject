@@ -72,7 +72,5 @@ namespace MiniProject
             }
             Console.WriteLine($"You healed for {healedAmount}, your current HP is {CurrentHitPoints}");
         }
-
-
     }
 }
