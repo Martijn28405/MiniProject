@@ -10,7 +10,8 @@ namespace MiniProject.Quests
             this.adventuresPass = adventuresPass;
             this.currentLocation = currentLocation;
         }
-        public static void startQuest(string currentLocation, int adventuresPass)
+
+        public void startQuest()
         {
             if (currentLocation == "Guard's post")
             {
@@ -29,10 +30,11 @@ namespace MiniProject.Quests
                     Console.WriteLine("Guard: Could you please deal with these spiders for us? there will be an amazing reward for you if you manage to complete this quest.");
                     Console.WriteLine("Choose:\n1. Proceed to  bridge\n 2. Turn back to Town Square");
                     int choice = Int32.Parse(Console.ReadLine());
-                    while (choice != 1 || choice != 2)
+                    while (choice != 1 && choice != 2)
                     {
                         Console.WriteLine("Please Choose a valid option.");
                         Console.WriteLine("Choose:\n1. Proceed to  bridge\n 2. Turn back to Town Square");
+                        choice = Int32.Parse(Console.ReadLine());
                     }
                     if (choice == 1)
                     {

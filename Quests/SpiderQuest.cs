@@ -18,7 +18,7 @@ namespace MiniProject.Quests
                 System.Console.WriteLine("Quest unlocked!\nQuets description:\nThere are giant spiders in the forest that form a threat for the guards!\nKill 3 spiders for a reward.");
                 System.Console.WriteLine("Do you accept the quest?\n1. Yes(Proceed to Forest)\n2. No(Go back to Town Square)");
                 int choice = Int32.Parse(Console.ReadLine());
-                while (choice != 1 || choice != 2)
+                while (choice != 1 && choice != 2)
                 {
                     BridgeDialoge("Bridge", 0);
                 }
