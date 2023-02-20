@@ -22,7 +22,7 @@
             this.RewardExperience = rewardExperience;
             this.RewardGold = rewardGold;
             this.Loot = new CountedItemList();
-            this.MaximumHitPoints = MaximumHitPoints;
+            this.MaximumHitPoints = maximumHitPoints;
             this.CurrentHitPoints = currentHitPoints;
         }
 

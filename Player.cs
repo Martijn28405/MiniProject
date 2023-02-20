@@ -25,11 +25,8 @@ namespace MiniProject
             this.MaximumHitPoints = 10;
             this.Gold = 0;
             this.ExperiencePoints = 0;
-            this.Level = 0;
-            // this.CurrentWeapon =
-            // this.CurrentLocation = 
-            // this.QuestLog =
-            // this.CountedItemList =
+            this.Level = 1;
+            this.Inventory = new CountedItemList();
         }
 
         public void TakeDamage(int damage)
@@ -38,7 +35,6 @@ namespace MiniProject
             CurrentHitPoints -= damage;
             Console.WriteLine($"You took {damage} damage, your current HP is {CurrentHitPoints}/{MaximumHitPoints}.");
         }
-
 
         public void DealDamage(Monster target)
         {
@@ -58,7 +54,23 @@ namespace MiniProject
             // When the dice rolls anything else the player does regular damage between their minimun and maximun damage.
             int damageAmount = World.RandomGenerator.Next(CurrentWeapon.MinimumDamage, CurrentWeapon.MaximumDamage);
             target.TakeDamage(damageAmount);
-            Console.WriteLine($"You did {damageAmount} of damage!");
+            Console.WriteLine($"You did {damageAmount} damage!");
+        }
+
+        public void Recover()
+        {
+            int healAmount = World.RandomGenerator.Next(0, MaximumHitPoints);
+            int healedAmount = healAmount;
+            if (healAmount + CurrentHitPoints > MaximumHitPoints)
+            {
+                healedAmount = MaximumHitPoints - CurrentHitPoints;
+                CurrentHitPoints = MaximumHitPoints;
+            }
+            else
+            {
+                CurrentHitPoints += healAmount;
+            }
+            Console.WriteLine($"You healed for {healedAmount}, your current HP is {CurrentHitPoints}");
         }
     }
 }

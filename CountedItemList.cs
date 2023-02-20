@@ -15,7 +15,7 @@ namespace MiniProject
         {
             CountedItem countedItem = FindItemInCountedItemList(item);
 
-            // If the item isn't in the list, it creates a new CointedItem and adds it to the list.
+            // If the item isn't in the list, it creates a new CountedItem and adds it to the list.
             if (countedItem == null)
             {
                 countedItem = new CountedItem(item, 0);
@@ -36,6 +36,18 @@ namespace MiniProject
             {
                 existingCountedItem.Quantity += countedItem.Quantity;
             }
+        }
+
+        public override string ToString()
+        {
+            string allItems = "";
+
+            foreach (CountedItem item in TheCountedItemList)
+            {
+                allItems += $"{item.Quantity}x {item.TheItem.Name}\n";
+            }
+
+            return allItems;
         }
 
         // Private can only get accessed within the current class.
