@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MiniProject.Quests;
 
 namespace MiniProject
 {
@@ -50,9 +51,11 @@ namespace MiniProject
                         Console.WriteLine();
                         break;
                     case "2":
-                        Console.WriteLine("Fight test");
-                        var battle = new Battle(player, World.Monsters.First());
-                        battle.StartBattle();
+                        // Temporary Alchemist test for the quest
+                        Console.WriteLine("Alchemist quest test");
+                        player.CurrentLocation = World.LocationByID(World.LOCATION_ID_ALCHEMISTS_GARDEN);
+                        Alchemist alchemistGarden = new Alchemist(player);
+                        alchemistGarden.startQuest();
                         break;
                     case "3":
                         Console.WriteLine(Map());

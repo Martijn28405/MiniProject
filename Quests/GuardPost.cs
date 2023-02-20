@@ -43,7 +43,7 @@ namespace MiniProject.Quests
                     }
                     else if (choice == 2)
                     {
-                        System.Console.WriteLine("Guard: I would really appreciate it if you came back soon. otherwise many lifes will be lost!");
+                        System.Console.WriteLine("Guard: I would really appreciate it if you came back soon. Otherwise many lifes will be lost!");
                         //Switch location to Town Square
                     }
                 }
