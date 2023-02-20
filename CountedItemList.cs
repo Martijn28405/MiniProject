@@ -21,6 +21,7 @@ namespace MiniProject
                 countedItem = new CountedItem(item, 0);
                 TheCountedItemList.Add(countedItem);
             }
+            // If it's already in the list it updates the quantity.
             countedItem.Quantity++;
         }
 
