@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MiniProject.Quests
+namespace MiniProject
 {
 
     public class Farmer
@@ -15,21 +15,32 @@ namespace MiniProject.Quests
         }
         public void startQuest()
         {
-            Console.WriteLine("Farmer: I can't w'rk mine own landeth with those pesky snakes slith'ring 'round! Shall thee holp me?");
-            Battle firstBattle = new Battle(Player, Player.CurrentLocation.MonsterLivingHere);
-            firstBattle.StartBattle();
-            Battle secondBattle = new Battle(Player, Player.CurrentLocation.MonsterLivingHere);
-            secondBattle.StartBattle();
-            Battle thirdBattle = new Battle(Player, Player.CurrentLocation.MonsterLivingHere);
-            thirdBattle.StartBattle();
-            Console.WriteLine("You won againt the snakes, now return to the the Farmer with 3 Snake fangs");
+            Console.WriteLine("Farmer: I can't w'rk mine own landeth with those pesky snakes slith'ring 'round! Shall thee holp me?(yes/no)");
+            string answer = Console.ReadLine();
+            if (answer == "yes")
+            {
+                Player.CurrentLocation = World.LocationByID(World.LOCATION_ID_FARM_FIELD);
+                Battle firstBattle = new Battle(Player, Player.CurrentLocation.MonsterLivingHere);
+                firstBattle.StartBattle();
+                Battle secondBattle = new Battle(Player, Player.CurrentLocation.MonsterLivingHere);
+                secondBattle.StartBattle();
+                Battle thirdBattle = new Battle(Player, Player.CurrentLocation.MonsterLivingHere);
+                thirdBattle.StartBattle();
+                Console.WriteLine("You won againt the snakes, now return to the the Farmer with 3 Snake fangs");
+                Console.WriteLine("You returned to the Farmer with the three snake fangs");
+
+                Console.WriteLine("Farmer: Thankth for sav'ing my landeth");
+                // Adventurers's pass moet nog worden toegevoegd
+                Console.WriteLine("You have been rewarded with the Adventurer's Pass to enter the bridge");
+            }
+            else
+            {
+                Console.WriteLine("alright then, thnx anyway.");
+            }
+            
 
             // Player.Inventory.TheCountedItemList.Remove(World.ITEM_ID_SNAKESKIN);
-            Console.WriteLine("You returned to the Farmer with the three snake fangs");
-
-            Console.WriteLine("Farmer: Thankth for sav'ing my landeth");
-            // Adventurers's pass moet nog worden toegevoegd
-            Console.WriteLine("You have been rewarded with the Adventurer's Pass to enter the bridge");
+            
         }
         // method maken "clear the farmer's fields"
         // quest given by Farmer (F) vgm niet printen?
