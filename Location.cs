@@ -24,6 +24,7 @@
             QuestAvailableHere = questAvailableHere;
             MonsterLivingHere = monsterLivingHere;
             Letter = letter;
+            
         }
 
         public string Map()

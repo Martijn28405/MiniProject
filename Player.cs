@@ -56,13 +56,16 @@
         {
             int healAmount = World.RandomGenerator.Next(0, MaximumHitPoints);
             int healedAmount = healAmount;
+            // Checks if the healAmount is bigger than the Maximum HP.
             if (healAmount + CurrentHitPoints > MaximumHitPoints)
             {
+                // If the amount is bigger it substracts the Current HP from the Maximum HP to only heal the difference and not go over the Maximum HP.
                 healedAmount = MaximumHitPoints - CurrentHitPoints;
                 CurrentHitPoints = MaximumHitPoints;
             }
             else
             {
+                // Otherwise it just heals the rolled amount.
                 CurrentHitPoints += healAmount;
             }
             Console.WriteLine($"You healed for {healedAmount}, your current HP is {CurrentHitPoints}");

@@ -1,6 +1,8 @@
-﻿namespace MiniProject
+﻿using System.Collections;
+
+namespace MiniProject
 {
-    public class CountedItemList
+    public class CountedItemList : IEnumerable
     {
         public List<CountedItem> TheCountedItemList;
 
@@ -19,6 +21,7 @@
                 countedItem = new CountedItem(item, 0);
                 TheCountedItemList.Add(countedItem);
             }
+            // If it's already in the list it updates the quantity.
             countedItem.Quantity++;
         }
 
@@ -62,6 +65,11 @@
             }
 
             return null;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }

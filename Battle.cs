@@ -18,14 +18,14 @@ namespace MiniProject
             while (_player.CurrentHitPoints > 0)
             {
                 Console.WriteLine("What do you want to do?");
-                char userChoice;
+                string userChoice;
                 while (true)
                 {
                     Console.WriteLine("1. Attack\n2. Dodge\n3. Heal");
-                    userChoice = Console.ReadKey().KeyChar;
+                    userChoice = Console.ReadLine();
                     Console.Clear();
 
-                    if (userChoice == '1' || userChoice == '2' || userChoice == '3') break;
+                    if (userChoice == "1" || userChoice == "2" || userChoice == "3") break;
 
                     Console.WriteLine("You can't do that. Choose something else");
                 }
@@ -34,13 +34,13 @@ namespace MiniProject
 
                 switch (userChoice)
                 {
-                    case '1':
+                    case "1":
                         _player.DealDamage(_monster);
                         break;
-                    case '2':
+                    case "2":
                         dodgeNextMove = Dodge();
                         break;
-                    case '3':
+                    case "3":
                         _player.Recover();
                         break;
                 }
@@ -84,8 +84,16 @@ namespace MiniProject
         private void BattleWin()
         {
             Console.WriteLine($"{_monster.Name} killed!");
+            GetLoot();
+        }
+
+        private void GetLoot()
+        {
+            // First you check if the monster has any loot.
             if (_monster.Loot != null)
             {
+                // You loop though the created TheCountedItemList to grab the items 1 by 1 to return what you've received and add it to the inventory.
+
                 Console.WriteLine("You've obtained:");
                 foreach (CountedItem item in _monster.Loot.TheCountedItemList)
                 {
@@ -93,6 +101,29 @@ namespace MiniProject
                     _player.Inventory.AddCountedItem(item);
                 }
             }
+        }
+
+        private void GetEXP()
+        {
+            Console.WriteLine($"You've obtained: {_monster.RewardExperience} EXP.");
+            int currentEXP = _player.ExperiencePoints += _monster.RewardExperience;
+            // If the player levels they get a level up message and their Maximum HP goes up.
+            if (currentEXP >= 10)
+            {
+                int currentLVL = _player.Level++;
+                Console.WriteLine($"You've leveled up! Your current level is {currentLVL}.");
+                _player.ExperiencePoints -= 10;
+                _player.MaximumHitPoints += World.RandomGenerator.Next(1, 4);
+            }
+            Console.WriteLine($"Your current EXP is {currentEXP}.");
+        }
+
+        private void GetGold()
+        {
+            // The gold gets added to the players amount of gold.
+            Console.WriteLine($"You've obtained: {_monster.RewardGold} gold.");
+            int currentGold = _player.Gold += _monster.RewardGold;
+            Console.WriteLine($"You currently have {currentGold} gold.");
         }
     }
 }

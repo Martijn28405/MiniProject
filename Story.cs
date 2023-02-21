@@ -40,13 +40,14 @@ namespace MiniProject
                         Console.WriteLine($"Maximum HP: {player.MaximumHitPoints}");
                         Console.WriteLine($"Current HP: {player.CurrentHitPoints}");
                         Console.WriteLine($"Gold: {player.Gold}");
+                        Console.WriteLine($"Level{player.Level}");
                         // Console.WriteLine($"Your Current location: {Map()}");
                         Console.WriteLine($"Inventory item count: {player.Inventory.TheCountedItemList.Count}");
-                        Console.WriteLine(
-                            $"Inventory items: [{string.Join(",", player.Inventory.TheCountedItemList)}]");
+                        Console.WriteLine($"Inventory items: \n {string.Join(",", player.Inventory)}");
                         Console.WriteLine();
                         break;
                     case "2":
+
                         if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_ALCHEMISTS_GARDEN))
                         {
                             var battle = new Battle(player, World.Monsters.First());
@@ -60,6 +61,12 @@ namespace MiniProject
                             Console.WriteLine("No monster to fight here.");
                         }
 
+
+                        // Temporary Alchemist test for the quest
+                        // Console.WriteLine("Alchemist quest test");
+                        // player.CurrentLocation = World.LocationByID(World.LOCATION_ID_ALCHEMISTS_GARDEN);
+                        // Alchemist alchemistGarden = new Alchemist(player);
+                        // alchemistGarden.startQuest();
                         break;
                     case "3":
                         Console.WriteLine(player.CurrentLocation.Map());
@@ -127,6 +134,11 @@ namespace MiniProject
             {
                 Menu();
             }
+        }
+
+        public void AdventuresPass()
+        {
+             player.CurrentLocation.ItemRequiredToEnter = (World.ItemByID(World.ITEM_ID_ADVENTURER_PASS));
         }
     }
 }
