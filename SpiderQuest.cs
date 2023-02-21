@@ -1,4 +1,4 @@
-namespace MiniProject.Quests
+namespace MiniProject
 {
     public class SpiderQuest
     {
