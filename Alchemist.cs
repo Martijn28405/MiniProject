@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MiniProject.Quests
+namespace MiniProject
 {
     public class Alchemist
     {
@@ -21,15 +21,21 @@ namespace MiniProject.Quests
             secondBattle.StartBattle();
             Battle thirdBattle = new Battle(Player, Player.CurrentLocation.MonsterLivingHere);
             thirdBattle.StartBattle();
-            Console.WriteLine("You won againt the rats, now return the the Alchemist with the 3 Rat tails");
-
+            Console.WriteLine("You won against the rats, you return to the alchemist to give him the 3 Rat tails.");
+            // Loop through the inventory to check if the needed items are in there and then remove those items.
+            foreach (CountedItem item in Player.Inventory.TheCountedItemList)
+            {
+                if (item.TheItem.ID == World.ITEM_ID_RAT_TAIL && item.Quantity >= 3)
+                {
+                    Player.Inventory.TheCountedItemList.Remove(item);
+                    break;
+                }
+            }
             Console.WriteLine("Alchemist: Thankth for sav'ing my h'rbs");
+
             Player.CurrentWeapon = World.WeaponByID(World.WEAPON_ID_CLUB);
-            Console.WriteLine("You have been rewarded with a Club");
-
-            // Return to the Alchemist with 3 Rat tails
-            // Removed from inventory
-
+            Console.WriteLine("The Alchemist rewards you by giving you a new weapon: a Club");
+            Console.WriteLine("You decide to immediately equip your newly received weapon.");
         }
     }
 }
