@@ -7,8 +7,8 @@
 
         public PlayerQuest(Quest theQuest, bool isCompleted)
         {
-            this.TheQuest = theQuest;
-            this.IsCompleted = isCompleted;
+            TheQuest = theQuest;
+            IsCompleted = isCompleted;
 
         }
     }

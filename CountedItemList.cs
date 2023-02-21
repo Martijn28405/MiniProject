@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace MiniProject
+﻿namespace MiniProject
 {
     public class CountedItemList
     {

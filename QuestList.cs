@@ -6,7 +6,7 @@
 
         public QuestList()
         {
-            this.QuestLog = new List<PlayerQuest>();
+            QuestLog = new List<PlayerQuest>();
         }
     }
 }

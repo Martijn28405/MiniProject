@@ -8,9 +8,9 @@ namespace MiniProject
 
         public Item(int id, string name, string namePlural)
         {
-            this.ID = id;
-            this.Name = name;
-            this.NamePlural = namePlural;
+            ID = id;
+            Name = name;
+            NamePlural = namePlural;
         }
     }
 }

@@ -10,11 +10,11 @@
 
         public Weapon(int id, string name, string namePlural, int minimumDamage, int maximumDamage)
         {
-            this.ID = id;
-            this.Name = name;
-            this.NamePlural = namePlural;
-            this.MinimumDamage = minimumDamage;
-            this.MaximumDamage = maximumDamage;
+            ID = id;
+            Name = name;
+            NamePlural = namePlural;
+            MinimumDamage = minimumDamage;
+            MaximumDamage = maximumDamage;
 
         }
     }

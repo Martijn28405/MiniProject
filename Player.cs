@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MiniProject
+﻿namespace MiniProject
 {
     public class Player
     {
@@ -20,13 +15,13 @@ namespace MiniProject
 
         public Player(string name)
         {
-            this.Name = name;
-            this.CurrentHitPoints = 10;
-            this.MaximumHitPoints = 10;
-            this.Gold = 0;
-            this.ExperiencePoints = 0;
-            this.Level = 1;
-            this.Inventory = new CountedItemList();
+            Name = name;
+            CurrentHitPoints = 10;
+            MaximumHitPoints = 10;
+            Gold = 0;
+            ExperiencePoints = 0;
+            Level = 1;
+            Inventory = new CountedItemList();
         }
 
         public void TakeDamage(int damage)

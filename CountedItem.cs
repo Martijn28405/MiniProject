@@ -6,8 +6,8 @@
         public int Quantity { get; set; }
         public CountedItem(Item theitem, int quantity)
         {
-            this.TheItem = theitem;
-            this.Quantity = quantity;
+            TheItem = theitem;
+            Quantity = quantity;
         }
     }
 }

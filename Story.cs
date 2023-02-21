@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace MiniProject
 {
     public class Story
@@ -21,12 +16,13 @@ namespace MiniProject
 
         public void Intro()
         {
-            Console.WriteLine("The people in your town are being terrorized by giant spiders. You Decide to do what you can to help");
+            Console.WriteLine(
+                "The people in your town are being terrorized by giant spiders. You Decide to do what you can to help");
         }
 
         public void Menu()
         {
-            Console.WriteLine("You are home now");
+            Console.WriteLine($"You are at {player.CurrentLocation.Name} now");
 
             while (true)
             {
@@ -35,7 +31,7 @@ namespace MiniProject
                 Console.WriteLine("2. Fight");
                 Console.WriteLine("3. Move");
                 Console.WriteLine("4. Quit");
-                string choice = Console.ReadLine();
+                var choice = Console.ReadLine();
                 switch (choice)
                 {
                     case "1":
@@ -46,41 +42,91 @@ namespace MiniProject
                         Console.WriteLine($"Gold: {player.Gold}");
                         // Console.WriteLine($"Your Current location: {Map()}");
                         Console.WriteLine($"Inventory item count: {player.Inventory.TheCountedItemList.Count}");
-                        Console.WriteLine($"Inventory items: {player.Inventory}");
+                        Console.WriteLine(
+                            $"Inventory items: [{string.Join(",", player.Inventory.TheCountedItemList)}]");
                         Console.WriteLine();
                         break;
                     case "2":
-                        Console.WriteLine("Fight test");
-                        var battle = new Battle(player, World.Monsters.First());
-                        battle.StartBattle();
+                        if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_ALCHEMISTS_GARDEN))
+                        {
+                            var battle = new Battle(player, World.Monsters.First());
+                            battle.StartBattle();
+                        }
+                        else if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_SPIDER_FIELD))
+                        {
+                        }
+                        else
+                        {
+                            Console.WriteLine("No monster to fight here.");
+                        }
+
                         break;
                     case "3":
-                        Console.WriteLine(Map());
+                        Console.WriteLine(player.CurrentLocation.Map());
+                        Console.WriteLine(player.CurrentLocation.Compass());
+                        Console.WriteLine("Where would you like to go?");
+                        string direction = Console.ReadLine().ToUpper();
+                        switch (direction)
+                        {
+                            case "N":
+                            case "NORTH":
+                                player.CurrentLocation = player.CurrentLocation.LocationToNorth;
+                                Console.WriteLine($"You are at {player.CurrentLocation.Name} now");
+                                Quests();
+                                break;
+
+                            case "E":
+                            case "EAST":
+                                player.CurrentLocation = player.CurrentLocation.LocationToEast;
+                                Console.WriteLine($"You are at {player.CurrentLocation.Name} now");
+                                Quests();
+                                break;
+                            case "S":
+                            case "SOUTH":
+                                player.CurrentLocation = player.CurrentLocation.LocationToSouth;
+                                Console.WriteLine($"You are at {player.CurrentLocation.Name} now");
+                                Quests();
+                                break;
+                            case "W":
+                            case "WEST":
+                                player.CurrentLocation = player.CurrentLocation.LocationToWest;
+                                Console.WriteLine($"You are at {player.CurrentLocation.Name} now");
+                                Quests();
+                                break;
+                            default:
+                                Console.WriteLine("You can't go there, try again");
+                                break;
+                        }
+
                         break;
                     case "4":
-                        System.Environment.Exit(1);
+                        Environment.Exit(1);
                         break;
                     default:
+                        Console.WriteLine("Wrong input, try something else.");
                         break;
                 }
             }
         }
 
-        public string Map()
+        private void Quests()
         {
-            string town = World.LocationByID(World.LOCATION_ID_TOWN_SQUARE).Letter;
-            string garden = World.LocationByID(World.LOCATION_ID_ALCHEMISTS_GARDEN).Letter;
-            string farmhouse = World.LocationByID(World.LOCATION_ID_FARMHOUSE).Letter;
-            string farmfield = World.LocationByID(World.LOCATION_ID_FARM_FIELD).Letter;
-            string hut = World.LocationByID(World.LOCATION_ID_ALCHEMIST_HUT).Letter;
-            string guard = World.LocationByID(World.LOCATION_ID_GUARD_POST).Letter;
-            string spider = World.LocationByID(World.LOCATION_ID_SPIDER_FIELD).Letter;
-            string home = World.LocationByID(World.LOCATION_ID_HOME).Letter;
-            string bridge = World.LocationByID(World.LOCATION_ID_BRIDGE).Letter;
-            string map = "\n" + String.Format("{0,5}", garden) + "\n" + String.Format("{0,5}", hut) + "\n" + " " + farmfield + farmhouse + town + guard + bridge + spider + "\n" + "    " + home + "\n";
-            return $"Current Location: {home} \n Map \n {map}";
-
-
+            if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_ALCHEMISTS_GARDEN))
+            {
+                Console.WriteLine("Alchemist garden quest test");
+            }
+            else if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_FARM_FIELD))
+            {
+                Console.WriteLine("Farmers field quest test");
+            }
+            else if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_SPIDER_FIELD))
+            {
+                Console.WriteLine("Spider silk quest test");
+            }
+            else
+            {
+                Menu();
+            }
         }
     }
 }

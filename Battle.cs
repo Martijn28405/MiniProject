@@ -50,10 +50,8 @@ namespace MiniProject
                     BattleWin();
                     return;
                 }
-                else
-                {
-                    Console.WriteLine($"The {_monster.Name} has {_monster.CurrentHitPoints} health left.");
-                }
+
+                Console.WriteLine($"The {_monster.Name} has {_monster.CurrentHitPoints} health left.");
 
                 if (!dodgeNextMove)
                 {
@@ -78,11 +76,9 @@ namespace MiniProject
                 Console.WriteLine($"You dodged the {_monster.Name} attack!");
                 return true;
             }
-            else
-            {
-                Console.WriteLine("Dodge failed!");
-                return false;
-            }
+
+            Console.WriteLine("Dodge failed!");
+            return false;
         }
 
         private void BattleWin()
@@ -90,7 +86,7 @@ namespace MiniProject
             Console.WriteLine($"{_monster.Name} killed!");
             if (_monster.Loot != null)
             {
-                Console.WriteLine($"You've obtained:");
+                Console.WriteLine("You've obtained:");
                 foreach (CountedItem item in _monster.Loot.TheCountedItemList)
                 {
                     Console.WriteLine($"{item.Quantity}x {item.TheItem.Name}");

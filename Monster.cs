@@ -15,15 +15,15 @@
         public Monster(int id, string name, string namePlural, int maximumDamage, int rewardExperience, int rewardGold,
             int maximumHitPoints, int currentHitPoints)
         {
-            this.ID = id;
-            this.Name = name;
-            this.NamePlural = namePlural;
-            this.MaximumDamage = maximumDamage;
-            this.RewardExperience = rewardExperience;
-            this.RewardGold = rewardGold;
-            this.Loot = new CountedItemList();
-            this.MaximumHitPoints = maximumHitPoints;
-            this.CurrentHitPoints = currentHitPoints;
+            ID = id;
+            Name = name;
+            NamePlural = namePlural;
+            MaximumDamage = maximumDamage;
+            RewardExperience = rewardExperience;
+            RewardGold = rewardGold;
+            Loot = new CountedItemList();
+            MaximumHitPoints = maximumHitPoints;
+            CurrentHitPoints = currentHitPoints;
         }
 
         public void TakeDamage(int damage)
