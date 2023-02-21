@@ -50,11 +50,13 @@ namespace MiniProject
 
                         if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_ALCHEMISTS_GARDEN))
                         {
-                            var battle = new Battle(player, World.Monsters.First());
-                            battle.StartBattle();
+                            Alchemist quest1 = new Alchemist(player);
+                            quest1.startQuest();
                         }
-                        else if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_SPIDER_FIELD))
+                        else if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_FARM_FIELD))
                         {
+                            Farmer quest2 = new Farmer(player);
+                            quest2.startQuest();
                         }
                         else
                         {
@@ -118,13 +120,16 @@ namespace MiniProject
 
         private void Quests()
         {
-            if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_ALCHEMISTS_GARDEN))
+            if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_ALCHEMIST_HUT))
             {
-                Console.WriteLine("Alchemist garden quest test");
+                Alchemist quest1 = new Alchemist(player);
+                quest1.startQuest();
+                
             }
-            else if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_FARM_FIELD))
+            else if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_FARMHOUSE))
             {
-                Console.WriteLine("Farmers field quest test");
+                Farmer quest2 = new Farmer(player);
+                quest2.startQuest();
             }
             else if (player.CurrentLocation == World.LocationByID(World.LOCATION_ID_SPIDER_FIELD))
             {
