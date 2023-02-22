@@ -85,6 +85,8 @@ namespace MiniProject
         {
             Console.WriteLine($"{_monster.Name} killed!");
             GetLoot();
+            GetEXP();
+            GetGold();
         }
 
         private void GetLoot()
