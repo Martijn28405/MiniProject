@@ -61,9 +61,26 @@ namespace MiniProject
                 Console.WriteLine($"You have {_player.CurrentHitPoints} health left.");
             }
 
-            if (_player.CurrentHitPoints <= 0)
+            while (_player.CurrentHitPoints <= 0)
             {
                 Console.WriteLine("You Died!");
+                Console.WriteLine("wanna try again? (yes/no)");
+                string choice = Console.ReadLine();
+                if (choice == "yes")
+                {
+                    _player.CurrentHitPoints = _player.MaximumHitPoints;
+                    StartBattle();
+                }
+                else if (choice == "no")
+                {
+                    Console.WriteLine("okay, i will send you back to the town");
+                    _player.CurrentLocation = World.LocationByID(World.LOCATION_ID_TOWN_SQUARE);
+                }
+                else
+                {
+                    Console.WriteLine("thats not a option, choose 'yes' or 'no'");
+                }
+
             }
         }
 
@@ -87,6 +104,7 @@ namespace MiniProject
             GetLoot();
             GetEXP();
             GetGold();
+            _monster.CurrentHitPoints = _monster.MaximumHitPoints;
         }
 
         private void GetLoot()

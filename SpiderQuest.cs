@@ -43,6 +43,7 @@ namespace MiniProject
             Console.WriteLine("He waves at you and asks how it went, you show him the spider silk and he lets out a sigh of relief.\nAfter thanking you he gives you the Winner's Medal.");
             Player.Inventory.AddItem(World.ItemByID(World.ITEM_ID_WINNERS_MEDAL));
             Console.WriteLine("After bringing peace to the village your quest finally ends. Good job!\n THE END!");
+            Environment.Exit(1);
         }
     }
 }

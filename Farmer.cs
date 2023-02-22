@@ -17,6 +17,7 @@ namespace MiniProject
         {
             Console.WriteLine("Farmer: I can't w'rk mine own landeth with those pesky snakes slith'ring 'round! Shall thee holp me?");
             Console.WriteLine("You decide to help the farmer and enter the field filled with snakes.");
+            Player.CurrentLocation = World.LocationByID(World.LOCATION_ID_FARM_FIELD);
 
             Battle firstBattle = new Battle(Player, Player.CurrentLocation.MonsterLivingHere);
             firstBattle.StartBattle();
@@ -24,6 +25,7 @@ namespace MiniProject
             secondBattle.StartBattle();
             Battle thirdBattle = new Battle(Player, Player.CurrentLocation.MonsterLivingHere);
             thirdBattle.StartBattle();
+            Player.CurrentLocation = World.LocationByID(World.LOCATION_ID_TOWN_SQUARE);
 
             Console.WriteLine("You won againt the snakes, now return to the the Farmer with 3 Snake fangs");
             Console.WriteLine("You've returned to the Farmer with the three snake fangs.");
